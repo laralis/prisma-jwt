@@ -32,15 +32,17 @@ export class PostsController {
 
   async delete(req: Request, res: Response) {
     const { id } = req.params;
-
-    await database.post.delete({
-      where: {
-        id: Number(id),
-        user_id: req.user?.user_id,
-      },
-    });
-
-    res.status(200).send({ message: "Post excluido com sucesso" });
+    try {
+      await database.post.delete({
+        where: {
+          id: Number(id),
+          user_id: req.user?.user_id,
+        },
+      });
+      res.status(200).send({ message: "Post excluido com sucesso" });
+    } catch {
+      res.send({ message: "Ocorreu um erro" });
+    }
   }
 
   async update(req: Request, res: Response) {

@@ -10,11 +10,11 @@ const userController = new UserController();
 const postController = new PostsController();
 const loginController = new LoginController();
 
-router.get("/users",authMiddleware, userController.getAll);
+router.get("/users", authMiddleware, userController.getAll);
 router.post("/users", userController.create);
 router.get("/posts", authMiddleware, postController.getAll);
-router.get("/posts/:id",authMiddleware, postController.getOne);
-router.post("/posts",authMiddleware, postController.create);
-router.put("/posts/:id",authMiddleware, postController.update);
-router.delete("/posts/:id",authMiddleware, postController.delete);
+router.get("/posts/:id", authMiddleware, postController.getOne);
+router.post("/posts", authMiddleware, postController.create);
+router.put("/posts/:id", authMiddleware, postController.update);
+router.delete("/posts/:id", authMiddleware, postController.delete);
 router.post("/login", loginController.login);

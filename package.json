@@ -10,6 +10,7 @@
     "eslint": "^9.19.0",
     "globals": "^15.14.0",
     "prisma": "^6.3.0",
+    "tsup": "^8.3.6",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.22.0"
@@ -18,10 +19,12 @@
     "@prisma/client": "6.3.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.2"
   },
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "lint": "yarn eslint --fix src/index.ts"
+    "lint": "yarn eslint --fix src/index.ts",
+    "build": "tsup src/index.ts"
   }
 }
